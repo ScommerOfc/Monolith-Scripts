@@ -47,4 +47,3 @@ void onCreateMove(CUserCmd & cmd, bool & sendPacket) {
         }
     }
 }
-//PS: I am gay
