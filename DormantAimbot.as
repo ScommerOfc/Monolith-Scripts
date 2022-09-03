@@ -39,7 +39,7 @@ void onCreateMove(CUserCmd & cmd, bool & sendPacket) {
                 Vector enemyAngle = player.GetHitboxPoint(HITBOX_BODY); //Position to shoot
                 player.UpdateVisibility(); //Refresh a last time to ensure dormancy
                 if(Util.IsPointHitable(eyeAngles, enemyAngle, localPlayer, player, minimumDamage)) { //Can We Hit For Minumum Damagge???
-                    QAngle finalAngle = Math.CalcAngle(eyeAngles, enemyAngle) - localPlayer.GetAimPunchAngle() * 4.f; //Get the final angle to shoot to
+                    QAngle finalAngle = Math.CalcAngle(eyeAngles, enemyAngle) - localPlayer.GetAimPunchAngle() * 2.f; //Get the final angle to shoot to
                         cmd.viewangles = finalAngle; //Set our view to the angle
                         cmd.buttons |= IN_ATTACK; //Shoot
                 }
