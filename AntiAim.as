@@ -171,12 +171,12 @@ void runAntiAim(CUserCmd &cmd, bool & sendPacket) {
 	if(Input.IsKeyDown(32))
 		rollAng = 0;
 	
-    if(shouldBreakLby() && lbyBreaker) {
-        cmd.viewangles.y = 180;
-    }
-    else {
-        cmd.viewangles.y += 180.f; //Gets clamped anyways smh
-    }
+    	if(shouldBreakLby() && lbyBreaker) {
+        	cmd.viewangles.y = 180;
+   	 }
+    	else {
+        	cmd.viewangles.y += 180.f; //Gets clamped anyways smh
+    	}
 	
 	if(sendPacket) {
 		cmd.viewangles.y -= yawAngle + Util.RandomFloat(-leftLimit, rightLimit);
@@ -202,16 +202,16 @@ void onCreateMove(CUserCmd & cmd, bool & sendPacket) {
 		return;
 	if(localPlayer.GetFlags() == 128)
 		return;
-    if(localPlayer is null)
-        return;
-    if(!localPlayer.IsAlive())
-        return;
-    if(localPlayer.GetImmune())
-        return;
+   	if(localPlayer is null)
+        	return;
+    	if(!localPlayer.IsAlive())
+       		return;
+    	if(localPlayer.GetImmune())
+        	return;
 	
 	cmd.viewangles.x = getPitch(cmd, sendPacket);
 
-    if(enableOverride)
-        runAntiAim(cmd, sendPacket);
+    	if(enableOverride)
+        	runAntiAim(cmd, sendPacket);
     
 }
