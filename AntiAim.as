@@ -7,7 +7,6 @@ bool microMovements = false;
 uint rollKey = 0;
 float yawAngle;
 float timeToUpdate;
-float flLastSentYaw;
 float pitchAngle;
 float rollAngle;
 float rollMode;
@@ -176,7 +175,6 @@ void runAntiAim(CUserCmd &cmd, bool & sendPacket) {
 	
     if(shouldBreakLby() && lbyBreaker) {
         cmd.viewangles.y = 180;
-        flLastSentYaw = cmd.viewangles.y;
     }
     else {
         cmd.viewangles.y += 180.f; //Gets clamped anyways smh
