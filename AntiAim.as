@@ -3,7 +3,6 @@ bool enableOverride = false;
 bool lbyBreaker = false;
 bool enableRoll = false;
 bool enableAtTArgets = false;
-bool microMovements = false;
 uint rollKey = 0;
 float yawAngle;
 float timeToUpdate;
@@ -38,7 +37,6 @@ void onMenuCallback() {
 		Menu::SliderFloat("Left Limit", leftLimit, 0, 60, "%1.f", 1.f);      		
         Menu::SliderFloat("Right Limit", rightLimit, 0, 60, "%1.f", 1.f);
 		Menu::Checkbox("Opposite Breaker", lbyBreaker);
-		Menu::Checkbox("Micromovements", microMovements);
 		Menu::Text("---------------------------------------------------");
         Menu::End();
 	}
@@ -192,17 +190,6 @@ void runAntiAim(CUserCmd &cmd, bool & sendPacket) {
 	}
 	
 	Util.FixMovement(cmd, cmd.viewangles, true);
-	
-	if(microMovements) {
-		if(localPlayer.GetFlags() == 1 && cmd.sidemove < 3 && cmd.sidemove > -3) {
-			bool switchNs = false;
-			if(switchNs)
-				cmd.sidemove = 2;
-			else
-				cmd.sidemove = -2;
-			switchNs = !switchNs;
-		}
-	}
 }
 
 void onCreateMove(CUserCmd & cmd, bool & sendPacket) {
