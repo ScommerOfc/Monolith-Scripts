@@ -45,7 +45,7 @@ void onMenuCallback() {
 bool shouldBreakLby() {
     CBaseEntity @localPlayer = Interfaces.ClientEntityList.GetLocalPlayer();
     if(localPlayer.GetAbsVelocity().Length() > 0.1f) {
-        timeToUpdate = Interfaces.Globals.curtime + 0.22; //Fix Curtime
+        timeToUpdate = Interfaces.Globals.curtime + 0.22;
         return false;
     }
     else {
