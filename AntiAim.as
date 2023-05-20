@@ -58,17 +58,6 @@ bool shouldBreakLby() {
 }
 
 float getPitch(CUserCmd &cmd, bool & sendPacket) {
-    bool invertJitter = false;
-	bool shouldInvert = false;
-
-	if (sendPacket)
-		shouldInvert = true;
-	else if (sendPacket && shouldInvert) //-V560
-	{
-		shouldInvert = false;
-		invertJitter = !shouldInvert;
-	}
-
     float pitch = cmd.viewangles.x;
 
     if(pitchAngle == 1)
@@ -193,8 +182,8 @@ void runAntiAim(CUserCmd &cmd, bool & sendPacket) {
 }
 
 void onCreateMove(CUserCmd & cmd, bool & sendPacket) {
-    if(Interfaces.ClientEntityList.GetLocalPlayer().GetMoveType() == MOVETYPE::MOVETYPE_LADDER || Interfaces.ClientEntityList.GetLocalPlayer().GetMoveType() == MOVETYPE::MOVETYPE_NOCLIP) //Avoiding Errors
-        return;
+        if(Interfaces.ClientEntityList.GetLocalPlayer().GetMoveType() == MOVETYPE::MOVETYPE_LADDER || Interfaces.ClientEntityList.GetLocalPlayer().GetMoveType() == MOVETYPE::MOVETYPE_NOCLIP) //Avoiding Errors
+        	return;
 
 	CBaseEntity @localPlayer = Interfaces.ClientEntityList.GetLocalPlayer();
     //Just Some Stuff To Avoid Weird Behaviour
