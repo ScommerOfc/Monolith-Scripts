@@ -161,7 +161,7 @@ void runAntiAim(CUserCmd &cmd, bool & sendPacket) {
 		rollAng = 0;
 	
     	if(shouldBreakLby() && lbyBreaker) {
-        	cmd.viewangles.y = 180;
+        	cmd.viewangles.y += 120;
    	 }
     	else {
         	cmd.viewangles.y += 180.f; //Gets clamped anyways smh
